@@ -30,6 +30,7 @@ despues abrir puerto http://localhost:8080
 // get ticket by id     -    GET http://localhost:8080/ticket/:id                         
 // delete ticket by id  -    DELETE http://localhost:8080/ticket/:id                        
 // update ticket        -    POST http://localhost:8080/ticket/:id    bodyRequest:   {id: int, name: "", state: "", username:"",created_at: "" , updated_at: "" }
+
 // save ticket          -    POST http://localhost:8080/ticket        bodyRequest:   {name: "", state: "", username:"",created_at: "" , updated_at: "" }                      
 
 
