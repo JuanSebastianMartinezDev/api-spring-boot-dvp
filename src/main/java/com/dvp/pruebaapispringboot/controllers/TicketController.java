@@ -27,8 +27,8 @@ public class TicketController {
 
     @PostMapping()
     public Ticket saveTicket(@RequestBody Ticket ticket){
-        var created_at= ticket.getCreated_at().toString();
-        if(created_at==""){
+        var created_at= ticket.getCreated_at();
+        if(created_at==null){
             ticket.setCreated_at(new Date());
         }
         return tickerService.saveTicket(ticket);
@@ -36,30 +36,30 @@ public class TicketController {
 
     @PostMapping(path = "/{id}")
     public String updateTicket(@RequestBody Ticket ticket,@PathVariable("id") Long id){
-        var updated_at= ticket.getUpdated_at().toString();
-        if(updated_at==""){
+        var updated_at = ticket.getUpdated_at();
+        if(updated_at == null){
             ticket.setUpdated_at(new Date());
         }
         Optional<Ticket> ticket_exist=tickerService.getTicketById(id);
         if(ticket_exist != null){
             boolean ok=tickerService.updateTicket(ticket);
             if(ok){
-                return "Usuario actualizado con exito";
+                return "Ticket actualizado con exito";
             }
         }else{
-            return "No existe usuario por ID: "+id;
+            return "No existe ticket por ID: "+id;
         }
 
-        return "No se pudo actualizar el usuario";
+        return "No se pudo actualizar el ticket";
     }
 
     @DeleteMapping( path = "/{id}")
     public String deleteTicketById(@PathVariable("id") Long id){
         boolean ok=this.tickerService.deleteTicket(id);
         if(ok){
-            return "Se elimino correctamente el usuario";
+            return "Se elimino correctamente el ticket";
         }else{
-            return "Ups, el usuario con el id: "+id+" no pudo ser eliminado";
+            return "Ups, el ticket con el id: "+id+" no pudo ser eliminado";
         }
     }
 
