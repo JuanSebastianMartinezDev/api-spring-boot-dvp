@@ -6,11 +6,11 @@ JAVA 7
 MAVEN
 
 #BASE DE DATOS - CREDENCIALES
-host: db4free.net
-port: 3306
-name_database: database_spring
-db_username: user_bd_spring
-password: user_bd_spring
+#host: db4free.net
+#port: 3306
+#name_database: database_spring
+#db_username: user_bd_spring
+#password: user_bd_spring
 
 #REQUISITOS PARA EJECUTAR EN LOCAL
 apache-maven-3.8.6
